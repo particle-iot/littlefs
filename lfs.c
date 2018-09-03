@@ -2493,6 +2493,11 @@ int lfs_deorphan(lfs_t *lfs) {
             return err;
         }
 
+        // Avoid infinite loop when tail == pair
+        if (lfs_paircmp(cwd.pair, cwd.d.tail) == 0) {
+            return LFS_ERR_CORRUPT;
+        }
+
         // check head blocks for orphans
         if (!(0x80000000 & pdir.d.size)) {
             // check if we have a parent
