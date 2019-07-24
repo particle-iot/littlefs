@@ -15,8 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "lfs.h"
 #include "lfs_util.h"
+#include "lfs.h"
 
 
 /// Caching block device operations ///
