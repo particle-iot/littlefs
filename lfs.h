@@ -638,6 +638,7 @@ int lfs_fs_traverse(lfs_t *lfs, int (*cb)(void*, lfs_block_t), void *data);
 int lfs_migrate(lfs_t *lfs, const struct lfs_config *cfg);
 #endif
 
+int lfs_fs_forceconsistency(lfs_t *lfs);
 
 #ifdef __cplusplus
 } /* extern "C" */

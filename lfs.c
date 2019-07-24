@@ -425,7 +425,6 @@ static lfs_stag_t lfs_fs_parent(lfs_t *lfs, const lfs_block_t dir[2],
         lfs_mdir_t *parent);
 static int lfs_fs_relocate(lfs_t *lfs,
         const lfs_block_t oldpair[2], lfs_block_t newpair[2]);
-static int lfs_fs_forceconsistency(lfs_t *lfs);
 static int lfs_deinit(lfs_t *lfs);
 #ifdef LFS_MIGRATE
 static int lfs1_traverse(lfs_t *lfs,
@@ -3797,7 +3796,7 @@ static int lfs_fs_deorphan(lfs_t *lfs) {
     return 0;
 }
 
-static int lfs_fs_forceconsistency(lfs_t *lfs) {
+int lfs_fs_forceconsistency(lfs_t *lfs) {
     int err = lfs_fs_demove(lfs);
     if (err) {
         return err;
